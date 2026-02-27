@@ -29,6 +29,7 @@ asrModule.WriteAudio(pcmData)
 // Get results
 result, _ := asrModule.GetResult()
 fmt.Printf("Text: %s (final: %v)\n", result.Text, result.IsFinal)
+```
 
 ## Testing
 
