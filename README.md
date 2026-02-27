@@ -1,7 +1,5 @@
 # bhl-vosk-sherpa-go
 
-# bhl-vosk-sherpa-go
-
 🎤 Streaming speech recognition module for Go based on sherpa-onnx and Vosk model.
 
 ## Features
@@ -32,13 +30,12 @@ asrModule.WriteAudio(pcmData)
 result, _ := asrModule.GetResult()
 fmt.Printf("Text: %s (final: %v)\n", result.Text, result.IsFinal)
 
-
 ## Testing
 
-# Go test
+### Go test
 go run cmd/run.go
 
-# Python tester
+### Python tester
 python3 cmd/test.py
 python3 cmd/test.py --run
 python3 cmd/test.py --wav /path/to/file.wav
