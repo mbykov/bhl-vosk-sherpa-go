@@ -12,23 +12,50 @@
 
 ## Usage
 
-```go
-cfg := asr.Config{
-    ModelPath:  "../Models/vosk-model-streaming-ru",
-    SampleRate: 16000,
-    FeatureDim: 80,
-    ChunkMs:    100,
+### Configuration
+
+Create a `config.json` file:
+
+```json
+{
+    "model_path": "../Models/vosk-model-streaming-ru",
+    "test_wav": "../Models/vosk-model-streaming-ru/test.wav",
+    "sample_rate": 16000,
+    "feature_dim": 80,
+    "chunk_ms": 100
 }
+```
 
-asrModule, _ := asr.New(cfg)
-defer asrModule.Close()
+### Basic Example
 
-// Feed audio chunks
-asrModule.WriteAudio(pcmData)
+```go
+package main
 
-// Get results
-result, _ := asrModule.GetResult()
-fmt.Printf("Text: %s (final: %v)\n", result.Text, result.IsFinal)
+import (
+    "log"
+    "vosk-go/asr"
+)
+
+func main() {
+    // Load config from file
+    cfg, err := asr.LoadConfig("config.json")
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    // Create ASR module
+    asrModule, err := asr.New(cfg)
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer asrModule.Close()
+
+    // Process audio file
+    err = asrModule.ProcessFile(cfg.TestWav)
+    if err != nil {
+        log.Fatal(err)
+    }
+}
 ```
 
 ## Testing
