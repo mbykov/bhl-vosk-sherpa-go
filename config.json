@@ -1,0 +1,7 @@
+{
+  "model_path": "../Models/vosk-model-streaming-ru",
+  "test_wav": "../Models/vosk-model-streaming-ru/test.wav",
+  "sample_rate": 16000,
+  "feature_dim": 80,
+  "chunk_ms": 100
+}
