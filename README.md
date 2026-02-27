@@ -37,9 +37,13 @@ fmt.Printf("Text: %s (final: %v)\n", result.Text, result.IsFinal)
 go run cmd/run.go
 
 ### Python tester
+
 python3 cmd/test.py
+
 python3 cmd/test.py --run
+
 python3 cmd/test.py --wav /path/to/file.wav
+
 python3 cmd/test.py --record (pip install pyaudio)
 
 
