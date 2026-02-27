@@ -2,7 +2,6 @@
 *.dll
 *.exe
 bhl
-asr
 voice-assistant
 .DS_Store
 *.log
