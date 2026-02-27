@@ -7,15 +7,15 @@ import (
     "os"
     "strings"
 
-    "vosk-go/asr"  // импортируем наш пакет
+    "vosk-go/vosk"
 )
 
 func main() {
     configPath := flag.String("config", "config.json", "путь к файлу конфигурации")
-    wavFile := flag.String("wav", "", "путь к WAV файлу (переопределяет путь из конфига)")
+    wavFile := flag.String("wav", "", "путь к WAV файлу")
     flag.Parse()
 
-    cfg, err := asr.LoadConfig(*configPath)  // asr.LoadConfig
+    cfg, err := vosk.LoadConfig(*configPath)  // было asr.LoadConfig
     if err != nil {
         log.Fatalf("❌ Ошибка загрузки конфигурации: %v", err)
     }
@@ -36,13 +36,13 @@ func main() {
     fmt.Printf("  Размер чанка: %d мс\n", cfg.ChunkMs)
     fmt.Println(strings.Repeat("─", 50))
 
-    asrModule, err := asr.New(cfg)  // asr.New
+    voskModule, err := vosk.New(cfg)  // было asr.New
     if err != nil {
-        log.Fatalf("❌ Ошибка создания ASR модуля: %v", err)
+        log.Fatalf("❌ Ошибка создания Vosk модуля: %v", err)
     }
-    defer asrModule.Close()
+    defer voskModule.Close()
 
-    err = asrModule.ProcessFile(testFile)
+    err = voskModule.ProcessFile(testFile)
     if err != nil {
         log.Fatalf("❌ Ошибка обработки: %v", err)
     }

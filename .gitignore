@@ -1,12 +1,15 @@
-*.so
-*.dll
+# Executables
 *.exe
-bhl
-voice-assistant
-.DS_Store
+*.exe~
+*.dll
+*.so
+*.dylib
+vosk-go
+/bin/
+*tmp
+/tmp/
+
+# Other
+.vscode/
+.idea/
 *.log
-.env
-*.pem
-*.key
-tmp*
-tmp

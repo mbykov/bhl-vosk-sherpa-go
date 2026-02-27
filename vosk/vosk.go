@@ -1,4 +1,4 @@
-package asr
+package vosk
 
 import (
     "encoding/json"
@@ -249,7 +249,7 @@ func (m *ASRModule) ProcessFile(wavPath string) error {
             return nil
         }
         if result.Text != "" {
-            fmt.Printf("\r🔄 ПОСЛЕДНИЙ ПРОМЕЖ: %-50s", result.Text)
+            fmt.Printf("\r🔄 ФИНАЛ: %-50s", result.Text)
         }
         time.Sleep(100 * time.Millisecond)
     }
