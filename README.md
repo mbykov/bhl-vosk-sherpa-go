@@ -58,6 +58,15 @@ func main() {
 }
 ```
 
+### result
+
+```go
+    return Result{
+        Text:    text,
+        IsFinal: isFinal,
+    }, nil
+```
+
 ## Testing
 
 ### Go test
