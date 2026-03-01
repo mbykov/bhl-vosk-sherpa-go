@@ -7,7 +7,7 @@ import (
     "os"
     "strings"
 
-    "vosk-go/vosk"
+    "github.com/mbykov/bhl-vosk-sherpa-go/vosk"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-module vosk-go
+module github.com/mbykov/bhl-vosk-sherpa-go
 
 go 1.25.6
 
